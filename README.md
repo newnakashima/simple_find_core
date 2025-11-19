@@ -17,8 +17,9 @@
    ```
 3. Run the test suite to verify your environment:
    ```bash
-   cargo test
+   cargo test -p simple_find_core
    ```
+   Or use the convenience script: `./test-core.sh`
 
 ## Usage
 ```rust
@@ -41,7 +42,9 @@ When searching without case sensitivity, pass `false` as the third argument; inv
 ## Development Workflow
 - Format code with `cargo fmt` before committing.
 - Keep lints clean using `cargo clippy -- -D warnings`.
-- Run `cargo test` to execute the inline unit suite and any future integration tests under `tests/`.
+- Run `cargo test -p simple_find_core` (or `./test-core.sh`) to execute the inline unit suite and any future integration tests under `tests/`.
+- For WebAssembly bindings, build with `cd wasm && wasm-pack build --target web` (or `./build-wasm.sh`) to generate the package in `wasm/pkg/`.
+- For WebAssembly bindings tests, run `cd wasm && wasm-pack test --node` from the repository root, or use the convenience script `./test-wasm.sh`.
 - Benchmarks or profiling binaries can be added inside `benches/` or `examples/` if you need to measure performance before integrating into a UI.
 
 ## Contributing
