@@ -1,3 +1,4 @@
 target
 test_regex
 wasm/pkg
+.DS_Store
